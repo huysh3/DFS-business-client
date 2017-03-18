@@ -1,5 +1,4 @@
-src/
-dev/
-dist/
-gulpfile.js
-dump.rdb
+./src/
+./dev/
+./gulpfile.js
+./dump.rdb

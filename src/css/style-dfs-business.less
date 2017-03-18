@@ -13,5 +13,62 @@
     width: 100vw;
     height: 60vh;
     background-color: rgb(33, 33, 33);
+    .dfs-avatar {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .login-content {
+    background-color: #fff;
+    width: calc(~"100vw - 2rem");
+    margin-left: 1rem;
+    padding-bottom: 2rem;
+    z-index: 2;
+    position: absolute;
+    bottom: 3rem;
+    box-shadow: 0 0 .6rem #999;
+    text-align: center;
+  }
+  .username-content,
+  .password-content {
+    position: relative;
+    padding: 1rem;
+    margin-top: 3vh;
+  }
+  .username, .password {
+    width: calc(~"70vw - 3rem");
+    border: 0;
+    box-shadow: none;
+    padding-left: 3rem;
+    border-bottom: 1px solid #ccc;
+  }
+  input::-webkit-placeholder {
+    color: #ccc;
+  }
+  .input-logo {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    left: 1.8rem;
+    top: 1.3rem;
+    padding-right: .8rem;
+    border-right: 1px solid #ccc;
+  }
+  .center-btn {
+    width: 70vw;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #B62A18;
+    color: #fff;
+    font-weight: bold;
+    font-size: .8rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 5vh;
   }
 }
