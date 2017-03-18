@@ -8,15 +8,103 @@
     <link rel="stylesheet" href="../../css/style-dfs-business.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
-    <title>FAQs</title>
+    <title>order</title>
   </head>
   <body>
-    <div id="app" class="list-container">
-      FAQs
+    <div id="app" class="order-container">
+      <section class="banner-content">
+        <img class="logo" src="../img/DFS_LOGO_LRG.png" alt="">
+        <img class="logout-icon" src="../img/power-circular-button.png" alt="">
+      </section>
+      <div class="main-content">
+        <p class="user">User#33</p>
+        <div class="main-content-item">
+          <section class="menu-detail">
+            <p class="menu-item number">
+              <span class="left-part">A1</span>
+              <span class="right-part">3</span>
+            </p>
+            <p class="menu-item brand">
+              <span class="left-part">Brand</span>
+              <span class="right-part">LA MER</span>
+            </p>
+            <p class="menu-item product-cn">
+              <span class="left-part">Product(Chinese)</span>
+              <span class="right-part">大海</span>
+            </p>
+            <p class="menu-item product-en">
+              <span class="left-part">Product(English)</span>
+              <span class="right-part">The Moisturzing Gel Cream</span>
+            </p>
+            <p class="menu-item sku">
+              <span class="left-part">SKU#</span>
+              <span class="right-part">3923jd</span>
+            </p>
+          </section>
+        </div>
+        <div class="main-content-item">
+          <section class="menu-detail">
+            <p class="menu-item number">
+              <span class="left-part">A1</span>
+              <span class="right-part">3</span>
+            </p>
+            <p class="menu-item brand">
+              <span class="left-part">Brand</span>
+              <span class="right-part">LA MER</span>
+            </p>
+            <p class="menu-item product-cn">
+              <span class="left-part">Product(Chinese)</span>
+              <span class="right-part">大海</span>
+            </p>
+            <p class="menu-item product-en">
+              <span class="left-part">Product(English)</span>
+              <span class="right-part">The Moisturzing Gel Cream</span>
+            </p>
+            <p class="menu-item sku">
+              <span class="left-part">SKU#</span>
+              <span class="right-part">3923jd</span>
+            </p>
+          </section>
+        </div>
+        <div class="main-content-item">
+          <section class="menu-detail">
+            <p class="menu-item number">
+              <span class="left-part">A1</span>
+              <span class="right-part">3</span>
+            </p>
+            <p class="menu-item brand">
+              <span class="left-part">Brand</span>
+              <span class="right-part">LA MER</span>
+            </p>
+            <p class="menu-item product-cn">
+              <span class="left-part">Product(Chinese)</span>
+              <span class="right-part">大海</span>
+            </p>
+            <p class="menu-item product-en">
+              <span class="left-part">Product(English)</span>
+              <span class="right-part">The Moisturzing Gel Cream</span>
+            </p>
+            <p class="menu-item sku">
+              <span class="left-part">SKU#</span>
+              <span class="right-part">3923jd</span>
+            </p>
+          </section>
+        </div>
+      </div>
+      <div class="takeplace" style="height: 2rem;"></div>
       <footer class="tab-bar">
-        <span @click="routerGoPickedUp" class="tab-item">Picked Up</span>
-        <span @click="couponEvent" class="tab-item">Coupon</span>
-        <span @click="baggedEvent" class="tab-item active">Bagged</span>
+        <span @click="routerGoPickedUp" class="tab-item">
+          <span class="check-icon"></span>
+          Picked Up
+        </span>
+        <span @click="couponEvent" class="tab-item">
+          <span class="check-icon"></span>
+          Coupon
+        </span>
+        <span @click="baggedEvent" class="tab-item active">
+          <span class="check-icon"></span>
+          Bagged
+        </span>
       </footer>
     </div>
   </body>
@@ -31,7 +119,6 @@
     mounted: function() {
     },
     methods: {
-
       getSignIncomeList() {
         var _this = this
         axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
@@ -42,6 +129,9 @@
           .catch(function (error) {
             console.log(error);
           });
+      },
+      couponEvent() {
+        
       },
       routerGoList() {
         window.location.href = 'list.html'

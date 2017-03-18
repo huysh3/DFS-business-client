@@ -8,13 +8,36 @@
     <link rel="stylesheet" href="../../css/style-dfs-business.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
-    <title>title</title>
+    <title>List</title>
   </head>
   <body>
     <div id="app" class="list-container">
+      <nav class="nav-bar">
+        <span class="nav-item active">Unfinished</span>
+        <span class="nav-item">Finished</span>
+      </nav>
+      <div class="takeplace-20" style="height: 2rem;"></div>
       <div class="list-item-content">
-        <div class="list-item">
-          <div class="top-content"></div>
+        <!-- 用于循环 -->
+        <section class="list-item">
+          <div class="top-content">
+            <div class="title">User#13</div>
+            <div class="menu-content">
+              <div @click="routerGoOrder" class="show-more">More</div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*30</span>
+              </div>
+            </div>
+          </div>
           <div class="options-content">
             <span class="options-item picked-up-check">
               <span class="check-icon"></span>
@@ -24,13 +47,116 @@
               <span class="check-icon"></span>
               Coupon
             </span>
-            <span class="options-item bagged-check">
+            <span class="options-item bagged-check active">
               <span class="check-icon"></span>
               Bagged
             </span>
           </div>
-        </div>
+        </section>
+        <section class="list-item">
+          <div class="top-content">
+            <div class="title">User#13</div>
+            <div class="menu-content">
+              <div class="show-more">More</div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*30</span>
+              </div>
+            </div>
+          </div>
+          <div class="options-content">
+            <span class="options-item picked-up-check">
+              <span class="check-icon"></span>
+              Picked Up
+            </span>
+            <span class="options-item coupon-check">
+              <span class="check-icon"></span>
+              Coupon
+            </span>
+            <span class="options-item bagged-check active">
+              <span class="check-icon"></span>
+              Bagged
+            </span>
+          </div>
+        </section>
+        <section class="list-item">
+          <div class="top-content">
+            <div class="title">User#13</div>
+            <div class="menu-content">
+              <div class="show-more">More</div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*30</span>
+              </div>
+            </div>
+          </div>
+          <div class="options-content">
+            <span class="options-item picked-up-check">
+              <span class="check-icon"></span>
+              Picked Up
+            </span>
+            <span class="options-item coupon-check">
+              <span class="check-icon"></span>
+              Coupon
+            </span>
+            <span class="options-item bagged-check active">
+              <span class="check-icon"></span>
+              Bagged
+            </span>
+          </div>
+        </section>
+        <section class="list-item">
+          <div class="top-content">
+            <div class="title">User#13</div>
+            <div class="menu-content">
+              <div class="show-more">More</div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*3</span>
+              </div>
+              <div class="menu-item">
+                <span class="left-part">A1</span>
+                <span class="right-part">*30</span>
+              </div>
+            </div>
+          </div>
+          <div class="options-content">
+            <span class="options-item picked-up-check">
+              <span class="check-icon"></span>
+              Picked Up
+            </span>
+            <span class="options-item coupon-check">
+              <span class="check-icon"></span>
+              Coupon
+            </span>
+            <span class="options-item bagged-check active">
+              <span class="check-icon"></span>
+              Bagged
+            </span>
+          </div>
+        </section>
       </div>
+      <div class="takeplace-20" style="height: 2rem;"></div>
       <footer class="tab-bar">
         <span @click="routerGoList" class="tab-item active">List</span>
         <span @click="routerGoInventory" class="tab-item">Inventory</span>
@@ -60,6 +186,9 @@
           .catch(function (error) {
             console.log(error);
           });
+      },
+      routerGoOrder() {
+        window.location.href = 'order.html'
       },
       routerGoList() {
         window.location.href = 'list.html'

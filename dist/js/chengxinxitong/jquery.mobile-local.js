@@ -1,1 +1,0 @@
-$(document).bind("mobileinit",function(){$.mobile.changePage.defaults.changeHash=!1,$.mobile.hashListeningEnabled=!1,$.mobile.pushStateEnabled=!1});

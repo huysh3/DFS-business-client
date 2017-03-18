@@ -1061,6 +1061,68 @@ html[data-rem="320"] {
   background-color: #962A18;
 }
 
+.list-container .nav-bar {
+  height: 2rem;
+  line-height: 2rem;
+  display: flex;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+
+.list-container .nav-bar .nav-item {
+  flex: 1;
+  background-color: #666;
+  text-align: center;
+  color: #fff;
+}
+
+.list-container .nav-bar .nav-item.active {
+  background-color: #B62A18;
+}
+
+.list-container .top-content {
+  padding: .7rem;
+  width: calc(100vw - 2.8rem);
+  margin: 0 .7rem;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.list-container .top-content .title {
+  color: #B62A18;
+}
+
+.list-container .top-content .menu-content {
+  padding-left: 25vw;
+  position: relative;
+}
+
+.list-container .top-content .menu-content .left-part,
+.list-container .top-content .menu-content .right-part {
+  display: inline-block;
+  width: 5rem;
+  text-align: left;
+  font-size: .7rem;
+}
+
+.list-container .top-content .menu-content .show-more {
+  position: absolute;
+  right: .2rem;
+  bottom: .2rem;
+  font-size: .7rem;
+}
+
+.list-container .top-content .menu-content .show-more::after {
+  content: ' ';
+  width: 2rem;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  bottom: -0.2rem;
+  right: -0.2rem;
+}
+
 .list-container .options-content {
   display: flex;
   height: 2rem;
@@ -1071,13 +1133,10 @@ html[data-rem="320"] {
 .list-container .options-content .options-item {
   flex: 1;
   text-align: center;
+  border-top: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   font-size: .7rem;
-}
-
-.list-container .options-content .options-item.active {
-  background-color: #f0f0f0;
 }
 
 .list-container .options-content .options-item:last-child {
@@ -1085,11 +1144,114 @@ html[data-rem="320"] {
 }
 
 .list-container .options-content .check-icon {
-  background: url('../img/check-box (2).png');
+  background: url('../img/check-box.png');
   background-size: 1rem 1rem;
   position: relative;
   top: .2rem;
   display: inline-block;
   width: 1rem;
   height: 1rem;
+}
+
+.list-container .options-content .options-item.active {
+  background-color: #f0f0f0;
+}
+
+.list-container .options-content .options-item.active .check-icon {
+  background: url('../img/check-box (2).png');
+  background-size: 1rem 1rem;
+}
+
+.order-container {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.order-container .banner-content {
+  background-color: #000;
+  height: 2.7rem;
+  position: relative;
+}
+
+.order-container .banner-content .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+}
+
+.order-container .banner-content .logout-icon {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  right: .7rem;
+  transform: translate(-50%, -50%);
+}
+
+.order-container .main-content {
+  border: 1px solid #000;
+  margin: .7rem;
+}
+
+.order-container .main-content .user {
+  margin: .3rem;
+  color: #B62A18;
+  padding: .6rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.order-container .main-content-item {
+  padding-bottom: 1rem;
+}
+
+.order-container .menu-detail {
+  width: calc(100% - .6rem);
+  margin-left: .3rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: .7rem;
+}
+
+.order-container .menu-detail .menu-item {
+  display: flex;
+  font-size: .7rem;
+  padding: 0 .7rem;
+  margin: .3rem auto;
+}
+
+.order-container .menu-detail .left-part {
+  text-align: left;
+  flex: 1 1 auto;
+}
+
+.order-container .menu-detail .right-part {
+  text-align: right;
+  flex: 1 1 auto;
+}
+
+.order-container .menu-detail .product-cn,
+.order-container .menu-detail .product-en {
+  font-size: .6rem;
+}
+
+.order-container .menu-detail .number {
+  margin: 1rem 0;
+}
+
+.order-container .check-icon {
+  background: url('../img/check-box-white.png');
+  background-size: 1rem 1rem;
+  position: relative;
+  top: .2rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.order-container .tab-item.active .check-icon {
+  background: url('../img/check-box-white-active.png');
+  background-size: 1rem 1rem;
 }
