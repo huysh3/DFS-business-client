@@ -951,10 +951,37 @@ html[data-rem="320"] {
   }
 }
 
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 2rem;
+  line-height: 2rem;
+  display: flex;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  background-color: #666;
+  border-right: 1px solid #fff;
+  font-size: .8rem;
+}
+
+.tab-item:last-child {
+  border-right: 0;
+}
+
+.tab-item.active {
+  background-color: #B62A18;
+}
+
 .login-container {
   width: 100vw;
   min-height: 100vh;
   background-color: #f0f0f0;
+  position: relative;
 }
 
 .login-container .top-content {
@@ -1003,7 +1030,7 @@ html[data-rem="320"] {
   border-bottom: 1px solid #ccc;
 }
 
-.login-container input::-webkit-placeholder {
+.login-container input::-webkit-input-placeholder {
   color: #ccc;
 }
 
@@ -1028,4 +1055,41 @@ html[data-rem="320"] {
   text-align: center;
   margin: 0 auto;
   margin-top: 5vh;
+}
+
+.login-container .center-btn:active {
+  background-color: #962A18;
+}
+
+.list-container .options-content {
+  display: flex;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: #fff;
+}
+
+.list-container .options-content .options-item {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-size: .7rem;
+}
+
+.list-container .options-content .options-item.active {
+  background-color: #f0f0f0;
+}
+
+.list-container .options-content .options-item:last-child {
+  border-right: 0;
+}
+
+.list-container .options-content .check-icon {
+  background: url('../img/check-box (2).png');
+  background-size: 1rem 1rem;
+  position: relative;
+  top: .2rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
 }

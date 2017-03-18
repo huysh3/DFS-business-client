@@ -8,24 +8,34 @@
     <link rel="stylesheet" href="../../css/style-dfs-business.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
-    <title>Login</title>
+    <title>title</title>
   </head>
   <body>
-    <div id="app" class="login-container">
-      <div class="top-content">
-        <img class="dfs-avatar" src="../img/DFS_LOGO_LRG.png" alt="">
-      </div>
-      <div class="login-content">
-        <div class="username-content">
-          <img class="input-logo" src="../img/user.png" alt="">
-          <input type="text" class="username" placeholder="Username">
+    <div id="app" class="list-container">
+      <div class="list-item-content">
+        <div class="list-item">
+          <div class="top-content"></div>
+          <div class="options-content">
+            <span class="options-item picked-up-check">
+              <span class="check-icon"></span>
+              Picked Up
+            </span>
+            <span class="options-item coupon-check">
+              <span class="check-icon"></span>
+              Coupon
+            </span>
+            <span class="options-item bagged-check">
+              <span class="check-icon"></span>
+              Bagged
+            </span>
+          </div>
         </div>
-        <div class="password-content">
-          <img class="input-logo" src="../img/lock.png" alt="">
-          <input type="password" class="password" placeholder="password">
-        </div>
-        <div @click="login" class="center-btn">Login</div>
       </div>
+      <footer class="tab-bar">
+        <span @click="routerGoList" class="tab-item active">List</span>
+        <span @click="routerGoInventory" class="tab-item">Inventory</span>
+        <span @click="routerGoFAQs" class="tab-item">FAQs</span>
+      </footer>
     </div>
   </body>
   <script src="../js/jquery-2.1.1.min.js" charset="utf-8"></script>
@@ -39,9 +49,7 @@
     mounted: function() {
     },
     methods: {
-      login() {
-        window.location.href = 'list.html'
-      },
+
       getSignIncomeList() {
         var _this = this
         axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
@@ -52,7 +60,16 @@
           .catch(function (error) {
             console.log(error);
           });
-      }
+      },
+      routerGoList() {
+        window.location.href = 'list.html'
+      },
+      routerGoInventory() {
+        window.location.href = 'inventory.html'
+      },
+      routerGoFAQs() {
+        window.location.href = 'FAQs.html'
+      },
     }
   })
   </script>
