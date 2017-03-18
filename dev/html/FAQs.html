@@ -11,8 +11,59 @@
     <title>FAQs</title>
   </head>
   <body>
-    <div id="app" class="list-container">
-      FAQs
+    <div id="app" class="faq-container">
+      <section class="banner-content">
+        <img class="logo" src="../img/DFS_LOGO_LRG.png" alt="">
+        <img class="logout-icon" src="../img/power-circular-button.png" alt="">
+      </section>
+      <section class="main-content">
+        <div class="faq-item">
+          <p class="title" @click="showDesc">1.Lorem ipsum dolor sit amet?</p>
+          <p class="desc">
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="title" @click="showDesc">2.Lorem ipsum dolor sit amet?</p>
+          <p class="desc">
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="title" @click="showDesc">3.king of books.Nor the?</p>
+          <p class="desc">
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="title" @click="showDesc">4.o end to the making of books.Nor ther?</p>
+          <p class="desc">
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+          </p>
+        </div>
+        <div class="faq-item">
+          <p class="title" @click="showDesc">5.ere is no end to the making of ?</p>
+          <p class="desc">
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+            There is no end to the making of books.Nor there..
+          </p>
+        </div>
+      </section>
+      <div class="takeplace" style="height: 2rem"></div>
       <footer class="tab-bar">
         <span @click="routerGoList" class="tab-item">List</span>
         <span @click="routerGoInventory" class="tab-item">Inventory</span>
@@ -31,7 +82,9 @@
     mounted: function() {
     },
     methods: {
-
+      showDesc() {
+        $('.desc').addClass('active')
+      },
       getSignIncomeList() {
         var _this = this
         axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)

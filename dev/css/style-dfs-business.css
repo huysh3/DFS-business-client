@@ -977,6 +977,31 @@ html[data-rem="320"] {
   background-color: #B62A18;
 }
 
+.banner-content {
+  background-color: #000;
+  height: 2.7rem;
+  position: relative;
+}
+
+.banner-content .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+}
+
+.banner-content .logout-icon {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  right: .7rem;
+  transform: translate(-50%, -50%);
+}
+
 .login-container {
   width: 100vw;
   min-height: 100vh;
@@ -1167,31 +1192,6 @@ html[data-rem="320"] {
   min-height: 100vh;
 }
 
-.order-container .banner-content {
-  background-color: #000;
-  height: 2.7rem;
-  position: relative;
-}
-
-.order-container .banner-content .logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-}
-
-.order-container .banner-content .logout-icon {
-  width: 1rem;
-  height: 1rem;
-  position: absolute;
-  top: 50%;
-  right: .7rem;
-  transform: translate(-50%, -50%);
-}
-
 .order-container .main-content {
   border: 1px solid #000;
   margin: .7rem;
@@ -1254,4 +1254,58 @@ html[data-rem="320"] {
 .order-container .tab-item.active .check-icon {
   background: url('../img/check-box-white-active.png');
   background-size: 1rem 1rem;
+}
+
+.inventory-container .table {
+  width: calc(100vw - .6rem);
+  margin: .3rem;
+}
+
+.inventory-container th {
+  text-align: center;
+  border: 1px solid #000;
+  color: #B62A18;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .8rem;
+}
+
+.inventory-container td {
+  height: 1rem;
+  line-height: 1rem;
+  padding-left: .4rem;
+  border: 1px solid #000;
+  font-size: .6rem;
+}
+
+.faq-container .main-content {
+  border: 1px solid #000;
+  width: calc(100vw - .6rem);
+  margin: .3rem;
+  padding: .7rem 0;
+  min-height: 100vh;
+}
+
+.faq-container .faq-item p {
+  margin: 0;
+  padding: 0 .4rem;
+}
+
+.faq-container .faq-item .title {
+  color: #B62A18;
+  font-size: .7rem;
+  padding: .4rem 0;
+  margin: 0 .4rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.faq-container .faq-item .desc {
+  font-size: .6rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-container .faq-item .desc.active {
+  max-height: 10rem;
 }

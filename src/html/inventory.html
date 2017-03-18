@@ -11,8 +11,51 @@
     <title>inventory</title>
   </head>
   <body>
-    <div id="app" class="list-container">
-      Inventory
+    <div id="app" class="inventory-container">
+      <section class="banner-content">
+        <img class="logo" src="../img/DFS_LOGO_LRG.png" alt="">
+        <img class="logout-icon" src="../img/power-circular-button.png" alt="">
+      </section>
+      <section class="table-content">
+        <table class="table">
+          <tr>
+            <th>Item</th>
+            <th>Max</th>
+            <th>Ordered</th>
+            <th>Picked-Up</th>
+            <th>Stock</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+        </table>
+
+      </section>
       <footer class="tab-bar">
         <span @click="routerGoList" class="tab-item">List</span>
         <span @click="routerGoInventory" class="tab-item active">Inventory</span>
