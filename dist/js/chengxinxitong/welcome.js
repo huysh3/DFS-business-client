@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".thumbImg").fadeOut(1e3,function(){window.location.href="/home"})});

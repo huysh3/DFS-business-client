@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../../css/style-chengxintong.css">
+    <title>个人中心</title>
+  </head>
+  <body>
+    <div class="personal-center-container">
+      <header>
+        <a href="javascript:history.back();"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
+        个人中心
+        <a href="about.html" class="right-btn"><img src="../../img/图标/关于我们.png" class="right-btn" @click="deleteMsgs"></a>
+      </header>
+      <section class="main-content">
+        <section class="top-content">
+          <img class="avatar" src="../../img/图标/个人中心封面.jpg" alt="">
+          <p class="name"></p>
+        </section>
+        <section class="table-cell-content">
+          <a href="msg_center.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/消息中心2.png" alt="">消息中心</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+          <a href="user_center.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/用户中心.png" alt="">用户中心</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+          <a href="clock_in.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/今日签到.png" alt="">每日签到</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+          <a href="user_account_detail.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/我的账单.png" alt="">我的账单</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+          <a href="family_account_balance.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/家庭账户.png" alt="">家庭账户</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+          <a href="user_account.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/个人账户.png" alt="">个人账户</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+          <a href="feedback.html">
+            <div class="table-cell">
+              <span class="left-part"><img class="table-cell-icon" src="../../img/图标/意见反馈.png" alt="">意见反馈</span>
+              <span class="right-part"><img class="forward-btn" src="../../img/图标/返回.png" alt=""></span>
+            </div>
+          </a>
+        </section>
+        <a href="login.html"><div class="logout-btn">退出登录</div></a>
+      </section>
+    </div>
+  </body>
+  <script type="text/javascript" src="../../js/chengxinxitong/jquery-2.1.1.min.js"></script>
+  <script>
+    $('.avatar').attr('src', window.localStorage.logo)
+    $('.name').html(window.localStorage.name)
+  </script>
+</html>

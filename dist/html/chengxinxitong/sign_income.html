@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../../css/style-chengxintong.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <title>签到明细收益</title>
+  </head>
+  <body>
+    <div id="app" class="sign-income-container">
+      <header>
+        <a href="home.html"><img class="back-btn" src="../../img/图标/返回.png" alt=""></a>
+        签到明细收益
+        <a class="right-btn"><img @click="chooseMonth" src="../../img/图标/搜索.png" class="right-btn"></a>
+      </header>
+      <section class="main-content">
+        <p class="title">12月签到</p>
+        <section class="table-cell-content">
+          <div class="table-cell" v-for="item in showList" :data-id="item.id">
+            <div class="left-part">
+              <p class="date">{{ item.week }}</p>
+              <p class="time">{{ item.time }}</p>
+            </div>
+            <div class="right-part">
+              <p class="income">+{{ item.money }}</p>
+              <p class="desc">{{ item.name }}</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </body>
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/utils.js"></script>
+  <script type="text/javascript" src="../../js/chengxinxitong/jquery.cookie.js"></script>
+  <script type="text/javascript">
+  var _identify = get_identify_safe()
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+  var vm = new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        showList: [],
+      }
+    },
+    mounted: function() {
+      var _this = this
+      this.getSignIncomeList()
+    },
+    methods: {
+      getSignIncomeList() {
+        var _this = this
+        var params = new URLSearchParams();
+        params.append('identify', _identify)
+        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
+          .then(function (response) {
+            console.log(response.data.list);
+            _this.showList = response.data.list
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      },
+      chooseMonth() {
+        var _this = this
+        var year_month_str = prompt('请以yyyy mm的形式输入待查询月份：');
+        var params = new FormData()
+        params.append('identify', _identify)
+        params.append('year', year_month_str.split(' ')[0])
+        params.append('month', year_month_str.split(' ')[1])
+        if (year_month_str.split(' ')[1] < 1 || year_month_str.split(' ')[1] > 12 || year_month_str.split(' ')[0] < 0) {
+          alert('请输入正确的时间');
+          return false;
+        }
+        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
+          .then(function (response) {
+            if (response.data.errno == 0) {
+              _this.showList = response.data.list
+            } else {
+              alert(response.data.error)
+            }
+          })
+          .catch(function (error) {
+          });
+      }
+    }
+  })
+  </script>
+</html>
