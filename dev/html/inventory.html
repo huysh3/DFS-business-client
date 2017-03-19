@@ -5,16 +5,16 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/style-dfs-business.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <link rel="stylesheet" href="/Public/css/style-dfs-business.css">
+    <script src="/Public/js/axios.min.js"></script>
+    <script src="/Public/js/vue.min.js"></script>
     <title>inventory</title>
   </head>
   <body>
     <div id="app" class="inventory-container">
       <section class="banner-content">
-        <img class="logo" src="../img/DFS_LOGO_LRG.png" alt="">
-        <img @click="logout" class="logout-icon" src="../img/power-circular-button.png" alt="">
+        <img class="logo" src="/Public/img/DFS_LOGO_LRG.png" alt="">
+        <img @click="logout" class="logout-icon" src="/Public/img/power-circular-button.png" alt="">
       </section>
       <section class="table-content">
         <table class="table">
@@ -41,7 +41,7 @@
       </footer>
     </div>
   </body>
-  <script src="../js/jquery-2.1.1.min.js" charset="utf-8"></script>
+  <script src="/Public/js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript">
   var domain = 'https://15580083.qcloud.la/';
   var vm = new Vue({
@@ -69,20 +69,20 @@
       logout() {
         axios.get(domain + 'Home/shop/logout')
           .then(function (response) {
-            window.location.href = 'login.html'
+
           })
           .catch(function (response) {
 
           })
       },
       routerGoList() {
-        window.location.href = 'list.html'
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_list'
       },
       routerGoInventory() {
-        window.location.href = 'inventory.html'
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_inventory'
       },
       routerGoFAQs() {
-        window.location.href = 'FAQs.html'
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_FAQs'
       },
     }
   })

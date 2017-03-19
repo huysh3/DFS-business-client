@@ -1174,7 +1174,7 @@ html[data-rem="320"] {
 }
 
 .list-container .options-content .options-item.active .check-icon {
-  background: url('../img/check-box (2).png');
+  background: url('/Public/img/check-box (2).png');
   background-size: 1rem 1rem;
   position: relative;
   top: .2rem;
@@ -1238,7 +1238,7 @@ html[data-rem="320"] {
 }
 
 .order-container .check-icon {
-  background: url('../img/check-box-white.png');
+  background: url('/Public/img/check-box-white.png');
   background-size: 1rem 1rem;
   position: relative;
   top: .2rem;
@@ -1248,7 +1248,7 @@ html[data-rem="320"] {
 }
 
 .order-container .tab-item.active .check-icon {
-  background: url('../img/check-box-white-active.png');
+  background: url('/Public/img/check-box-white-active.png');
   background-size: 1rem 1rem;
 }
 

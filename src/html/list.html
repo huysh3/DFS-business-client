@@ -5,10 +5,9 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/style-dfs-business.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
-    <!-- <script src="../js/vue.js" charset="utf-8"></script> -->
+    <link rel="stylesheet" href="/Public/css/style-dfs-business.css">
+    <script src="/Public/js/axios.min.js"></script>
+    <script src="/Public/js/vue.min.js"></script>
     <title>List</title>
   </head>
   <body>
@@ -55,7 +54,7 @@
       </footer>
     </div>
   </body>
-  <script src="../js/jquery-2.1.1.min.js" charset="utf-8"></script>
+  <script src="/Public/js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript">
   var domain = 'https://15580083.qcloud.la/';
   var vm = new Vue({
@@ -76,7 +75,7 @@
       getOrderList() {
         var _this = this
         axios.get(domain + 'Home/shop/order_list')
-        // axios.get('../mock/mock(4).json')
+        // axios.get('/Public/mock/mock(4).json')
           .then(function (response) {
             console.log(response.data)
             _this.orderList = response.data
@@ -107,16 +106,16 @@
 
       },
       routerGoOrder(uid) {
-        window.location.href = 'order.html?uid=' + uid
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_order?uid=' + uid
       },
       routerGoList() {
-        window.location.href = 'list.html'
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_list'
       },
       routerGoInventory() {
-        window.location.href = 'inventory.html'
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_inventory'
       },
       routerGoFAQs() {
-        window.location.href = 'FAQs.html'
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_FAQs'
       },
     }
   })
