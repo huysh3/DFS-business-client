@@ -65,6 +65,7 @@
   </body>
   <script src="../js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript">
+  var domain = 'https://15580083.qcloud.la/';
   var vm = new Vue({
     el: '#app',
     data: function() {
@@ -72,12 +73,12 @@
       }
     },
     mounted: function() {
+      this.getInventory()
     },
     methods: {
-
-      getSignIncomeList() {
+      getInventory() {
         var _this = this
-        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
+        axios.get(domain + 'Home/shop/inventory_list')
           .then(function (response) {
             console.log(response.data.list);
             _this.showList = response.data.list

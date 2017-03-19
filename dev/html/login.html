@@ -18,11 +18,11 @@
       <div class="login-content">
         <div class="username-content">
           <img class="input-logo" src="../img/user.png" alt="">
-          <input type="text" class="username" placeholder="Username">
+          <input type="text" class="username" placeholder="Username" v-model="usernameInput">
         </div>
         <div class="password-content">
           <img class="input-logo" src="../img/lock.png" alt="">
-          <input type="password" class="password" placeholder="password">
+          <input type="password" class="password" placeholder="password" v-model="passwordInput">
         </div>
         <div @click="login" class="center-btn">Login</div>
       </div>
@@ -30,24 +30,28 @@
   </body>
   <script src="../js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript">
+  var domain = 'https://15580083.qcloud.la/';
   var vm = new Vue({
     el: '#app',
     data: function() {
       return {
+        usernameInput: '',
+        passwordInput: '',
       }
     },
     mounted: function() {
     },
     methods: {
       login() {
-        window.location.href = 'list.html'
-      },
-      getSignIncomeList() {
         var _this = this
-        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
+        axios.get(domain + 'Home/shop/login?shopadmin_account=' + _this.usernameInput + '&shopadmin_password=' + _this.passwordInput)
           .then(function (response) {
-            console.log(response.data.list);
-            _this.showList = response.data.list
+            console.log(response);
+            if (response.data == 0) {
+              window.location.href = 'list.html'
+            } else {
+              alert(response.data)
+            }
           })
           .catch(function (error) {
             console.log(error);

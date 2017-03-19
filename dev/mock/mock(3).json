@@ -1,0 +1,37 @@
+    data: function() {
+      return {
+        order: {
+          "uid": '6',
+          "order": [
+            {
+              "picked": '0',
+              "bagged": '0',
+              "coupon": {
+                "coupon_state": '1'
+              },
+              "number": '2',
+              "product": {
+                "brand": 'LA MER',
+                "name_en": 'the sea',
+                "name_cn": '大海',
+                "SKU": '3251js',
+              }
+            },
+            {
+              "picked": '0',
+              "bagged": '1',
+              "coupon": {
+                "coupon_state": '1'
+              },
+              "number": '33',
+              "product": {
+                "brand": 'LA MER2',
+                "name_en": 'the sea2',
+                "name_cn": '大海2',
+                "SKU": '3251js2222',
+              }
+            }
+          ]
+        }
+      }
+    },

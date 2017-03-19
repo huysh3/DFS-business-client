@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../css/style-dfs-business.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <!-- <script src="../js/vue.js" charset="utf-8"></script> -->
     <title>List</title>
   </head>
   <body>
@@ -19,139 +20,29 @@
       <div class="takeplace-20" style="height: 2rem"></div>
       <div class="list-item-content">
         <!-- 用于循环 -->
-        <section class="list-item">
+        <section class="list-item" v-for="item in orderList">
           <div class="top-content">
-            <div class="title">User#13</div>
+            <div class="title">User#{{item.uid}}</div>
             <div class="menu-content">
-              <div @click="routerGoOrder" class="show-more">More</div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*30</span>
+              <div @click="routerGoOrder(item.uid)" class="show-more">More</div>
+              <div class="menu-item" v-for="order in item.order">
+                <span class="left-part">{{order.product.name}}</span>
+                <span class="right-part">*{{order.number}}</span>
               </div>
             </div>
           </div>
           <div class="options-content">
-            <span class="options-item picked-up-check">
+            <span class="options-item picked-up-check" :class="item.order[0].pickedup == 1 ? 'active' : ''" @click="pickedUpEvent">
               <span class="check-icon"></span>
-              Picked Up
+              Picked Up{{item.order[0].pickedup}}
             </span>
-            <span class="options-item coupon-check">
+            <span class="options-item coupon-check" :class="item.coupon.coupon_status == 1 ? 'active' : ''" @click="couponEvent">
               <span class="check-icon"></span>
-              Coupon
+              Coupon{{item.coupon.coupon_status}}
             </span>
-            <span class="options-item bagged-check active">
+            <span class="options-item bagged-check" :class="item.order[0].bagged == 1 ? 'active' : ''" @click="pickedUpEvent">
               <span class="check-icon"></span>
-              Bagged
-            </span>
-          </div>
-        </section>
-        <section class="list-item">
-          <div class="top-content">
-            <div class="title">User#13</div>
-            <div class="menu-content">
-              <div class="show-more">More</div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*30</span>
-              </div>
-            </div>
-          </div>
-          <div class="options-content">
-            <span class="options-item picked-up-check">
-              <span class="check-icon"></span>
-              Picked Up
-            </span>
-            <span class="options-item coupon-check">
-              <span class="check-icon"></span>
-              Coupon
-            </span>
-            <span class="options-item bagged-check active">
-              <span class="check-icon"></span>
-              Bagged
-            </span>
-          </div>
-        </section>
-        <section class="list-item">
-          <div class="top-content">
-            <div class="title">User#13</div>
-            <div class="menu-content">
-              <div class="show-more">More</div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*30</span>
-              </div>
-            </div>
-          </div>
-          <div class="options-content">
-            <span class="options-item picked-up-check">
-              <span class="check-icon"></span>
-              Picked Up
-            </span>
-            <span class="options-item coupon-check">
-              <span class="check-icon"></span>
-              Coupon
-            </span>
-            <span class="options-item bagged-check active">
-              <span class="check-icon"></span>
-              Bagged
-            </span>
-          </div>
-        </section>
-        <section class="list-item">
-          <div class="top-content">
-            <div class="title">User#13</div>
-            <div class="menu-content">
-              <div class="show-more">More</div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*3</span>
-              </div>
-              <div class="menu-item">
-                <span class="left-part">A1</span>
-                <span class="right-part">*30</span>
-              </div>
-            </div>
-          </div>
-          <div class="options-content">
-            <span class="options-item picked-up-check">
-              <span class="check-icon"></span>
-              Picked Up
-            </span>
-            <span class="options-item coupon-check">
-              <span class="check-icon"></span>
-              Coupon
-            </span>
-            <span class="options-item bagged-check active">
-              <span class="check-icon"></span>
-              Bagged
+              Bagged{{item.order[0].bagged}}
             </span>
           </div>
         </section>
@@ -166,29 +57,43 @@
   </body>
   <script src="../js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript">
+  var domain = 'https://15580083.qcloud.la/';
   var vm = new Vue({
     el: '#app',
     data: function() {
       return {
+        orderList: [],
+        uid: ''
       }
     },
     mounted: function() {
+      this.getOrderList()
     },
     methods: {
-
-      getSignIncomeList() {
+      getOrderList() {
         var _this = this
-        axios.post('http://s.chengxinxitong.com/app1.0.0/getSignRevenueListData.action', params)
+        axios.get(domain + 'Home/shop/order_list')
+        // axios.get('../mock/mock(4).json')
           .then(function (response) {
-            console.log(response.data.list);
-            _this.showList = response.data.list
+            console.log(response.data)
+            _this.orderList = response.data
+            // _this.uid = response.data.uid
           })
           .catch(function (error) {
             console.log(error);
           });
       },
-      routerGoOrder() {
-        window.location.href = 'order.html'
+      pickedUpEvent() {
+
+      },
+      couponEvent() {
+
+      },
+      baggedEvent() {
+
+      },
+      routerGoOrder(uid) {
+        window.location.href = 'order.html?uid=' + uid
       },
       routerGoList() {
         window.location.href = 'list.html'
