@@ -1093,6 +1093,7 @@ html[data-rem="320"] {
   width: 100vw;
   position: fixed;
   top: 0;
+  z-index: 3;
 }
 
 .list-container .nav-bar .nav-item {
@@ -1168,16 +1169,6 @@ html[data-rem="320"] {
   border-right: 0;
 }
 
-.list-container .options-content .check-icon {
-  background: url('../img/check-box.png');
-  background-size: 1rem 1rem;
-  position: relative;
-  top: .2rem;
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-}
-
 .list-container .options-content .options-item.active {
   background-color: #f0f0f0;
 }
@@ -1185,6 +1176,11 @@ html[data-rem="320"] {
 .list-container .options-content .options-item.active .check-icon {
   background: url('../img/check-box (2).png');
   background-size: 1rem 1rem;
+  position: relative;
+  top: .2rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
 }
 
 .order-container {

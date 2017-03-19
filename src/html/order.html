@@ -45,15 +45,15 @@
       </div>
       <div class="takeplace" style="height: 2rem;"></div>
       <footer class="tab-bar">
-        <span @click="pickedUpEvent" class="tab-item" :class="picked == 1 ? 'active' : ''">
+        <span @click="pickedUpEvent" class="tab-item pickedup" :class="pickedup == 1 ? 'active' : ''">
           <span class="check-icon"></span>
           Picked Up
         </span>
-        <span @click="couponEvent" class="tab-item" :class="coupon_state == 1 ? 'active': ''">
+        <span @click="couponEvent" class="tab-item coupon" :class="coupon_status == 1 ? 'active': ''">
           <span class="check-icon"></span>
           Coupon
         </span>
-        <span @click="baggedEvent" class="tab-item" :class="bagged == 1 ? 'active' : ''">
+        <span @click="baggedEvent" class="tab-item bagged" :class="bagged == 1 ? 'active' : ''">
           <span class="check-icon"></span>
           Bagged
         </span>
@@ -69,9 +69,9 @@
       return {
         uid: '',
         order: '',
-        picked: 0,
-        coupon_state: 0,
-        bagged: 0,
+        pickedup: '0',
+        coupon_status: '0',
+        bagged: '0',
       }
     },
     mounted: function() {
@@ -92,36 +92,46 @@
         axios.post(domain + 'Home/shop/order_info?uid=' + this.uid)
           .then(function (response) {
             _this.order = response.data.order
-            _this.picked = response.data.order[0].picked
+            _this.pickedup = response.data.order[0].pickedup
             _this.bagged = response.data.order[0].bagged
-            console.log(response.data.order[0]);
+            _this.coupon_status = response.data.coupon.coupon_status
+            console.log(response.data);
           })
           .catch(function (error) {
             console.log(error);
           });
       },
       couponEvent() {
+        var _this = this
         axios.post(domain + 'Home/shop/couponChange?uid=' + this.uid)
           .then(function (response) {
             console.log(response.data)
+            $('.coupon').addClass('active')
+            _this.coupon_status = 1
           })
           .catch(function (error) {
 
           })
       },
       pickedUpEvent() {
+        var _this = this
         axios.post(domain + 'Home/shop/pickedupConfirm?uid=' + this.uid)
           .then(function (response) {
             console.log(response.data)
+            $('.pickedup').addClass('active')
+            _this.picked = 1
           })
           .catch(function (error) {
 
           })
       },
       baggedEvent() {
+        var _this = this
         axios.post(domain + 'Home/shop/baggedConfirm?uid=' + this.uid)
           .then(function (response) {
             console.log(response.data)
+            $('.bagged').addClass('active')
+            _this.bagged = 1
           })
           .catch(function (error) {
 

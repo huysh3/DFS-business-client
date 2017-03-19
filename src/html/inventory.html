@@ -14,7 +14,7 @@
     <div id="app" class="inventory-container">
       <section class="banner-content">
         <img class="logo" src="../img/DFS_LOGO_LRG.png" alt="">
-        <img class="logout-icon" src="../img/power-circular-button.png" alt="">
+        <img @click="logout" class="logout-icon" src="../img/power-circular-button.png" alt="">
       </section>
       <section class="table-content">
         <table class="table">
@@ -25,36 +25,14 @@
             <th>Picked-Up</th>
             <th>Stock</th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
+          <tr v-for="item in lists">
+            <td>{{item.item}}</td>
+            <td>{{item.max}}</td>
+            <td>{{item.ordered}}</td>
+            <td>{{item.pickedup}}</td>
+            <td>{{item.stock}}</td>
           </tr>
         </table>
-
       </section>
       <footer class="tab-bar">
         <span @click="routerGoList" class="tab-item">List</span>
@@ -70,6 +48,7 @@
     el: '#app',
     data: function() {
       return {
+        lists: []
       }
     },
     mounted: function() {
@@ -81,11 +60,20 @@
         axios.get(domain + 'Home/shop/inventory_list')
           .then(function (response) {
             console.log(response.data.list);
-            _this.showList = response.data.list
+            _this.lists = response.data
           })
           .catch(function (error) {
             console.log(error);
           });
+      },
+      logout() {
+        axios.get(domain + 'Home/shop/logout')
+          .then(function (response) {
+            window.location.href = 'login.html'
+          })
+          .catch(function (response) {
+
+          })
       },
       routerGoList() {
         window.location.href = 'list.html'

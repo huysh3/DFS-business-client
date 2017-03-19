@@ -14,13 +14,13 @@
   <body>
     <div id="app" class="list-container">
       <nav class="nav-bar">
-        <span class="nav-item active">Unfinished</span>
-        <span class="nav-item">Finished</span>
+        <span @click="showOrderList" class="nav-item active unfinished">Unfinished</span>
+        <span @click="showFinishedOrderList" class="nav-item finished">Finished</span>
       </nav>
       <div class="takeplace-20" style="height: 2rem;"></div>
       <div class="list-item-content">
         <!-- 用于循环 -->
-        <section class="list-item" v-for="item in orderList">
+        <section class="list-item" v-for="item in indexList" v-show="item.order[0].pickedup == showStatus">
           <div class="top-content">
             <div class="title">User#{{item.uid}}</div>
             <div class="menu-content">
@@ -32,17 +32,17 @@
             </div>
           </div>
           <div class="options-content">
-            <span class="options-item picked-up-check" :class="item.order[0].pickedup == 1 ? 'active' : ''" @click="pickedUpEvent">
+            <span class="options-item picked-up-check" :class="item.order[0].pickedup == 1 ? 'active' : ''">
               <span class="check-icon"></span>
-              Picked Up{{item.order[0].pickedup}}
+              Picked Up
             </span>
-            <span class="options-item coupon-check" :class="item.coupon.coupon_status == 1 ? 'active' : ''" @click="couponEvent">
+            <span class="options-item coupon-check" :class="item.coupon.coupon_status == 1 ? 'active' : ''">
               <span class="check-icon"></span>
-              Coupon{{item.coupon.coupon_status}}
+              Coupon
             </span>
-            <span class="options-item bagged-check" :class="item.order[0].bagged == 1 ? 'active' : ''" @click="pickedUpEvent" @click="baggedEvent">
+            <span class="options-item bagged-check" :class="item.order[0].bagged == 1 ? 'active' : ''">
               <span class="check-icon"></span>
-              Bagged{{item.order[0].bagged}}
+              Bagged
             </span>
           </div>
         </section>
@@ -63,7 +63,10 @@
     data: function() {
       return {
         orderList: [],
-        uid: ''
+        uid: '',
+        indexList: [],
+        finishedOrderList: [],
+        showStatus: 0,
       }
     },
     mounted: function() {
@@ -77,11 +80,22 @@
           .then(function (response) {
             console.log(response.data)
             _this.orderList = response.data
+            _this.indexList = _this.orderList
             // _this.uid = response.data.uid
           })
           .catch(function (error) {
             console.log(error);
           });
+      },
+      showOrderList() {
+        $('.nav-item').removeClass('active')
+        $('.unfinished').addClass('active')
+        this.showStatus = 0
+      },
+      showFinishedOrderList() {
+        $('.nav-item').removeClass('active')
+        $('.finished').addClass('active')
+        this.showStatus = 1
       },
       pickedUpEvent() {
 
