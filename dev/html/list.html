@@ -21,7 +21,7 @@
         <!-- 用于循环 -->
         <section class="list-item" v-for="item in indexList" v-show="item.order[0].pickedup == showStatus">
           <div class="top-content">
-            <div class="title">User#{{item.uid}}</div>
+            <div class="title">User#{{item.nickname}}</div>
             <div class="menu-content">
               <div @click="routerGoOrder(item.uid)" class="show-more">More</div>
               <div class="menu-item" v-for="order in item.order">
