@@ -18,14 +18,15 @@
     border-radius: 50%;
   }
   .logout-icon {
-    width: 1rem;
-    height: 1rem;
     position: absolute;
     top: 50%;
     right: .7rem;
-    transform: translate(-50%, -50%);
+    transform: translate(0, -50%);
+    color: rgb(222, 222, 222);
+    font-size: .6rem;
   }
 }
+
 
 .login-container {
   width: 100vw;
@@ -102,14 +103,21 @@
 }
 
 .list-container {
-  .nav-bar {
-    height: 2rem;
-    line-height: 2rem;
-    display: flex;
+  .dfs-banner {
     width: 100vw;
+    float: left;
+  }
+  .nav-bar {
+    z-index: 3;
     position: fixed;
     top: 0;
-    z-index: 3;
+    .tab-container {
+      height: 2rem;
+      width: 100vw;
+      line-height: 2rem;
+      display: flex;
+      width: 100vw;
+    }
     .nav-item {
       flex: 1;
       background-color: #666;

@@ -5,61 +5,23 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/Public/css/style-dfs-business.css">
-    <script src="/Public/js/axios.min.js"></script>
-    <script src="/Public/js/vue.min.js"></script>
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="https://15580083.qcloud.la/Public/css/style-dfs-business.css">
+    <script src="https://15580083.qcloud.la/Public/js/axios.min.js"></script>
+    <script src="https://15580083.qcloud.la/Public/js/vue.min.js"></script>
     <title>FAQs</title>
   </head>
   <body>
     <div id="app" class="faq-container">
       <section class="banner-content">
         <img class="logo" src="/Public/img/DFS_LOGO_LRG.png" alt="">
-        <img @click="logout" class="logout-icon" src="/Public/img/power-circular-button.png" alt="">
+        <span @click="logout" class="logout-icon">Logout</span>
       </section>
       <section class="main-content">
-        <div class="faq-item">
-          <p class="title" @click="showDesc">1.Lorem ipsum dolor sit amet?</p>
-          <p class="desc">
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-          </p>
-        </div>
-        <div class="faq-item">
-          <p class="title" @click="showDesc">2.Lorem ipsum dolor sit amet?</p>
-          <p class="desc">
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-          </p>
-        </div>
-        <div class="faq-item">
-          <p class="title" @click="showDesc">3.king of books.Nor the?</p>
-          <p class="desc">
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-          </p>
-        </div>
-        <div class="faq-item">
-          <p class="title" @click="showDesc">4.o end to the making of books.Nor ther?</p>
-          <p class="desc">
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-          </p>
-        </div>
-        <div class="faq-item">
-          <p class="title" @click="showDesc">5.ere is no end to the making of ?</p>
-          <p class="desc">
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
-            There is no end to the making of books.Nor there..
+        <div class="faq-item" v-for="item in list">
+          <p class="title" @click="showDesc(item.id)">{{item.title}}</p>
+          <p :data-id="item.id" class="desc">
+            {{item.desc}}
           </p>
         </div>
       </section>
@@ -71,19 +33,63 @@
       </footer>
     </div>
   </body>
-  <script src="/Public/js/jquery-2.1.1.min.js" charset="utf-8"></script>
+  <script src="https://15580083.qcloud.la/Public/js/jquery-2.1.1.min.js" charset="utf-8"></script>
   <script type="text/javascript">
   var vm = new Vue({
     el: '#app',
     data: function() {
       return {
+        list: [
+          {
+            id: 1,
+            title: '1.Lorem ipsum dolor sit amet?',
+            desc: 'There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..',
+          },
+          {
+            id: 2,
+            title: '2.Lorem ipsum dolor sit amet?',
+            desc: 'There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..',
+          },
+          {
+            id: 3,
+            title: '3.Lorem ipsum dolor sit amet?',
+            desc: 'There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..',
+          },
+          {
+            id: 4,
+            title: '4.Lorem ipsum dolor sit amet?',
+            desc: 'There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..',
+          },
+          {
+            id: 5,
+            title: '5.Lorem ipsum dolor sit amet?',
+            desc: 'There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..',
+          },
+          {
+            id: 6,
+            title: '6.Lorem ipsum dolor sit amet?',
+            desc: 'There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..',
+          },
+          {
+            id: 7,
+            title: '7.Lorem ipsum dolor sit amet?',
+            desc: 'There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..There is no end to the making of books.Nor there..',
+          }
+        ],
+        activeId: '',
       }
     },
     mounted: function() {
     },
     methods: {
-      showDesc() {
-        $('.desc').addClass('active')
+      showDesc(id) {
+        $('.desc').removeClass('active')
+        if (this.activeId == id) {
+          this.activeId = 0
+        } else {
+          $('[data-id=' + id + ']').addClass('active')
+          this.activeId = id
+        }
       },
       getSignIncomeList() {
         var _this = this
