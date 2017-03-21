@@ -17,8 +17,8 @@
         <img class="logout-icon" src="https://15580083.qcloud.la/Public/img/power-circular-button.png" alt="">
       </section>
       <div class="main-content">
-        <p class="user">User#{{uid}}</p>
-        <div class="main-content-item" v-for="item in order" v-if="order.picked == 0">
+        <p class="user">User#{{nickname}}</p>
+        <div class="main-content-item" v-for="item in order" v-if="item.pickedup == 0">
           <section class="menu-detail">
             <p class="menu-item number">
               <span class="left-part">{{item.product.name_en}}</span>
@@ -29,16 +29,11 @@
               <span class="right-part">{{item.product.brand_name}}</span>
             </p>
             <p class="menu-item product-cn">
-              <span class="left-part">Product(Chinese)</span>
-              <span class="right-part">{{item.product.name}}</span>
-            </p>
-            <p class="menu-item product-en">
-              <span class="left-part">Product(English)</span>
-              <span class="right-part">{{item.product.name_en}}</span>
+              <span class="left-part">{{item.product.name}}</span>
             </p>
             <p class="menu-item sku">
-              <span class="left-part">SKU#</span>
-              <span class="right-part">{{item.product.SKU}}</span>
+              <span class="left-part">SKU_ID#</span>
+              <span class="right-part">{{item.product.SKU_ID}}</span>
             </p>
           </section>
         </div>
@@ -68,6 +63,7 @@
     data: function() {
       return {
         uid: '',
+        nickname:'',
         order: '',
         pickedup: '0',
         coupon_status: '0',
@@ -91,6 +87,7 @@
         var _this = this
         axios.post(domain + 'Home/shop/order_info?uid=' + this.uid)
           .then(function (response) {
+            _this.nickname = response.data.nickname
             _this.order = response.data.order
             _this.pickedup = response.data.order[0].pickedup
             _this.bagged = response.data.order[0].bagged
@@ -107,7 +104,8 @@
           .then(function (response) {
             console.log(response.data)
             $('.coupon').addClass('active')
-            _this.coupon_status = 1
+              _this.coupon_status = 1 - _this.coupon_status
+
           })
           .catch(function (error) {
 
@@ -115,11 +113,11 @@
       },
       pickedUpEvent() {
         var _this = this
-        axios.post(domain + 'Home/shop/pickedupConfirm?uid=' + this.uid)
+        axios.post(domain + 'Home/shop/pickedupChange?uid=' + this.uid)
           .then(function (response) {
             console.log(response.data)
             $('.pickedup').addClass('active')
-            _this.picked = 1
+            _this.pickedup = 1 - _this.pickedup
           })
           .catch(function (error) {
 
@@ -127,11 +125,11 @@
       },
       baggedEvent() {
         var _this = this
-        axios.post(domain + 'Home/shop/baggedConfirm?uid=' + this.uid)
+        axios.post(domain + 'Home/shop/baggedChange?uid=' + this.uid)
           .then(function (response) {
             console.log(response.data)
             $('.bagged').addClass('active')
-            _this.bagged = 1
+            _this.bagged = 1 - _this.bagged
           })
           .catch(function (error) {
 
