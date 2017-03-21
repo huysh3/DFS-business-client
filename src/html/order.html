@@ -17,8 +17,8 @@
         <img class="logout-icon" src="https://15580083.qcloud.la/Public/img/power-circular-button.png" alt="">
       </section>
       <div class="main-content">
-        <p class="user">User#{{uid}}</p>
-        <div class="main-content-item" v-for="item in order" v-if="order.picked == 0">
+        <p class="user">User#{{nickname}}</p>
+        <div class="main-content-item" v-for="item in order" v-if="item.pickedup == 0">
           <section class="menu-detail">
             <p class="menu-item number">
               <span class="left-part">{{item.product.name_en}}</span>
@@ -72,6 +72,7 @@
         pickedup: '0',
         coupon_status: '0',
         bagged: '0',
+        nickname: '',
       }
     },
     mounted: function() {
@@ -95,7 +96,8 @@
             _this.pickedup = response.data.order[0].pickedup
             _this.bagged = response.data.order[0].bagged
             _this.coupon_status = response.data.coupon.coupon_status
-            console.log(response.data);
+            _this.nickname = response.data.nickname
+            console.log(response.data.order);
           })
           .catch(function (error) {
             console.log(error);
