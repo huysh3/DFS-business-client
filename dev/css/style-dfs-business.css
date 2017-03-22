@@ -978,9 +978,11 @@ html[data-rem="320"] {
 }
 
 .banner-content {
-  background-color: #000;
   height: 2.7rem;
   position: relative;
+  background: url('https://15580083.qcloud.la/Public/img/DFS-banner.png') no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .banner-content .logo {
@@ -1000,6 +1002,11 @@ html[data-rem="320"] {
   transform: translate(0, -50%);
   color: #dedede;
   font-size: .6rem;
+}
+
+.dfs-banner {
+  width: 100vw;
+  float: left;
 }
 
 .login-container {
@@ -1086,11 +1093,6 @@ html[data-rem="320"] {
   background-color: #962A18;
 }
 
-.list-container .dfs-banner {
-  width: 100vw;
-  float: left;
-}
-
 .list-container .nav-bar {
   z-index: 3;
   position: fixed;
@@ -1117,27 +1119,53 @@ html[data-rem="320"] {
 
 .list-container .top-content {
   padding: .7rem;
+  padding-bottom: 1.5rem;
   width: calc(100vw - 2.8rem);
   margin: 0 .7rem;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
 }
 
-.list-container .top-content .title {
+.list-container .top-content header {
+  display: flex;
+  padding-right: .7rem;
   color: #B62A18;
 }
 
+.list-container .top-content header .title {
+  flex: 8;
+  padding-bottom: 1rem;
+}
+
+.list-container .top-content header .order-id {
+  flex: 1;
+  text-align: right;
+}
+
 .list-container .top-content .menu-content {
-  padding-left: 25vw;
+  padding: 0 5vw;
   position: relative;
+}
+
+.list-container .top-content .menu-content .menu-item {
+  display: flex;
+  padding-bottom: 1rem;
 }
 
 .list-container .top-content .menu-content .left-part,
 .list-container .top-content .menu-content .right-part {
   display: inline-block;
-  width: 5rem;
-  text-align: left;
   font-size: .7rem;
+}
+
+.list-container .top-content .menu-content .left-part {
+  flex: 5;
+  text-align: left;
+}
+
+.list-container .top-content .menu-content .right-part {
+  flex: 1;
+  text-align: right;
 }
 
 .list-container .top-content .menu-content .show-more {
@@ -1182,7 +1210,7 @@ html[data-rem="320"] {
 }
 
 .list-container .options-content .options-item.active .check-icon {
-  background: url('/Public/img/check-box (2).png');
+  background: url('https://15580083.qcloud.la/Public/img/check-box (2).png');
   background-size: 1rem 1rem;
   position: relative;
   top: .2rem;
@@ -1246,7 +1274,7 @@ html[data-rem="320"] {
 }
 
 .order-container .check-icon {
-  background: url('/Public/img/check-box-white.png');
+  background: url('https://15580083.qcloud.la/Public/img/check-box-white.png');
   background-size: 1rem 1rem;
   position: relative;
   top: .2rem;
@@ -1256,7 +1284,7 @@ html[data-rem="320"] {
 }
 
 .order-container .tab-item.active .check-icon {
-  background: url('/Public/img/check-box-white-active.png');
+  background: url('https://15580083.qcloud.la/Public/img/check-box-white-active.png');
   background-size: 1rem 1rem;
 }
 

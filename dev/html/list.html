@@ -6,18 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="https://15580083.qcloud.la/Public/css/style-dfs-business.css">
-    <script src="https://15580083.qcloud.la/Public/js/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/style-dfs-business.css">
+    <script src="https://15580083.qcloud.la/Public/js/axios.js"></script>
     <script src="https://15580083.qcloud.la/Public/js/vue.min.js"></script>
     <title>List</title>
   </head>
   <body>
     <div id="app" class="list-container">
       <nav class="nav-bar">
-        <img src="https://15580083.qcloud.la/Public/img/DFS-banner.png" alt="" class="dfs-banner">
+        <section class="banner-content">
+          <span @click="logout" class="logout-icon">Logout</span>
+        </section>
         <div class="tab-container">
-          <span @click="showOrderList" class="nav-item active unfinished">Unfinished</span>
-          <span @click="showFinishedOrderList" class="nav-item finished">Finished</span>
+          <span @click="showOrderList" class="nav-item active unfinished">Pending</span>
+          <span @click="showFinishedOrderList" class="nav-item finished">Past Orders</span>
         </div>
       </nav>
       <div class="takeplace-88" style="height: 4.4rem"></div>
@@ -25,9 +27,12 @@
         <!-- 用于循环 -->
         <section class="list-item" v-for="item in indexList" v-show="item.order[0].pickedup == showStatus">
           <div class="top-content">
-            <div class="title">User#{{item.nickname}}</div>
+            <header>
+              <div class="title">{{item.nickname}}</div>
+              <div class="order-id">{{item.order_id}}</div>
+            </header>
             <div class="menu-content">
-              <div @click="routerGoOrder(item.uid)" class="show-more">More</div>
+              <div @click="routerGoOrder(item.order_id)" class="show-more">More</div>
               <div class="menu-item" v-for="order in item.order" v-show="order.pickedup == showStatus">
                 <span class="left-part">{{order.product.name_en}}</span>
                 <span class="right-part">*{{order.number}}</span>
@@ -79,12 +84,10 @@
       getOrderList() {
         var _this = this
         axios.get(domain + 'Home/shop/order_list')
-        // axios.get('https://15580083.qcloud.la/Public/mock/mock(4).json')
           .then(function (response) {
             console.log(response.data)
             _this.orderList = response.data
             _this.indexList = _this.orderList
-            // _this.uid = response.data.uid
           })
           .catch(function (error) {
             console.log(error);
@@ -109,8 +112,17 @@
       baggedEvent() {
 
       },
-      routerGoOrder(uid) {
-        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_order?uid=' + uid
+      logout() {
+        axios.get(domain + 'Home/shop/logout')
+          .then(function (response) {
+
+          })
+          .catch(function (response) {
+
+          })
+      },
+      routerGoOrder(order_id) {
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_order?order_id=' + order_id
       },
       routerGoList() {
         window.location.href = 'https://15580083.qcloud.la/Home/shop/client_list'
