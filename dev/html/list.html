@@ -32,7 +32,7 @@
               <div class="order-id">{{item.order_id}}</div>
             </header>
             <div class="menu-content">
-              <div @click="routerGoOrder(item.order_id)" class="show-more">More</div>
+              <div @click="routerGoOrder(item.order_id, item.uid)" class="show-more">More</div>
               <div class="menu-item" v-for="order in item.order" v-show="order.pickedup == showStatus">
                 <span class="left-part">{{order.product.name_en}}</span>
                 <span class="right-part">*{{order.number}}</span>
@@ -120,8 +120,8 @@
 
           })
       },
-      routerGoOrder(order_id) {
-        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_order?order_id=' + order_id
+      routerGoOrder(order_id, uid) {
+        window.location.href = 'https://15580083.qcloud.la/Home/shop/client_order?order_id=' + order_id + '&uid=' + uid
       },
       routerGoList() {
         window.location.href = 'https://15580083.qcloud.la/Home/shop/client_list'

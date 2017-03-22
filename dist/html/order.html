@@ -74,6 +74,7 @@
         nickname:'',
         order: '',
         pickedup: '0',
+        uid: '',
         coupon_status: '0',
         bagged: '0',
         nickname: '',
@@ -82,6 +83,7 @@
     },
     mounted: function() {
       this.order_id = this.getQueryString('order_id')
+      this.uid = this.getQueryString('uid')
       this.getOrderInfo()
     },
     methods: {
