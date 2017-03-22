@@ -44,14 +44,8 @@
     width: 100vw;
     height: 60vh;
     background-color: rgb(33, 33, 33);
-    .dfs-avatar {
-      width: 6rem;
-      height: 6rem;
-      border-radius: 50%;
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .top-content-img {
+      width: 100vw;
     }
   }
   .login-content {
@@ -241,17 +235,39 @@
   .main-content {
     border: 1px solid #000;
     margin: .7rem;
+    padding-bottom: 1rem;
+  }
+  .order-info {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    color: #B62A18;
+    padding-right: .7rem;
+    .user,
+    .order-id {
+      flex: 1;
+    }
     .user {
       margin: .3rem;
-      color: #B62A18;
       padding: .6rem;
-      border-bottom: 1px solid #ccc;
+    }
+    .order-id {
+      text-align: right;
     }
   }
-
+  .price-content {
+    padding: 0 .7rem;
+    color: #B62A18;
+    display: flex;
+    .title,
+    .total-price {
+      flex: 1;
+    }
+    .total-price {
+      text-align: right;
+    }
+  }
   .main-content-item {
     padding-bottom: 1rem;
-
   }
   .menu-detail {
     width: calc(~"100% - .6rem");
@@ -263,6 +279,9 @@
       font-size: .7rem;
       padding: 0 .7rem;
       margin: .3rem auto;
+    }
+    .item-text {
+      font-size: .6rem;
     }
     .left-part {
       text-align: left;
@@ -278,6 +297,10 @@
     }
     .number {
       margin: 1rem 0;
+      .right-part {
+        font-size: .8rem;
+        font-weight: bold;
+      }
     }
   }
   .check-icon {

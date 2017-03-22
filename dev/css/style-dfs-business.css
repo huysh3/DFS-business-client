@@ -1024,14 +1024,8 @@ html[data-rem="320"] {
   background-color: #212121;
 }
 
-.login-container .top-content .dfs-avatar {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.login-container .top-content .top-content-img {
+  width: 100vw;
 }
 
 .login-container .login-content {
@@ -1227,13 +1221,43 @@ html[data-rem="320"] {
 .order-container .main-content {
   border: 1px solid #000;
   margin: .7rem;
+  padding-bottom: 1rem;
 }
 
-.order-container .main-content .user {
-  margin: .3rem;
-  color: #B62A18;
-  padding: .6rem;
+.order-container .order-info {
+  display: flex;
   border-bottom: 1px solid #ccc;
+  color: #B62A18;
+  padding-right: .7rem;
+}
+
+.order-container .order-info .user,
+.order-container .order-info .order-id {
+  flex: 1;
+}
+
+.order-container .order-info .user {
+  margin: .3rem;
+  padding: .6rem;
+}
+
+.order-container .order-info .order-id {
+  text-align: right;
+}
+
+.order-container .price-content {
+  padding: 0 .7rem;
+  color: #B62A18;
+  display: flex;
+}
+
+.order-container .price-content .title,
+.order-container .price-content .total-price {
+  flex: 1;
+}
+
+.order-container .price-content .total-price {
+  text-align: right;
 }
 
 .order-container .main-content-item {
@@ -1254,6 +1278,10 @@ html[data-rem="320"] {
   margin: .3rem auto;
 }
 
+.order-container .menu-detail .item-text {
+  font-size: .6rem;
+}
+
 .order-container .menu-detail .left-part {
   text-align: left;
   flex: 1 1 auto;
@@ -1271,6 +1299,11 @@ html[data-rem="320"] {
 
 .order-container .menu-detail .number {
   margin: 1rem 0;
+}
+
+.order-container .menu-detail .number .right-part {
+  font-size: .8rem;
+  font-weight: bold;
 }
 
 .order-container .check-icon {
