@@ -125,7 +125,7 @@
       },
       pickedUpEvent() {
         var _this = this
-        axios.post(domain + 'Home/shop/pickedupChange?uid=' + this.uid)
+        axios.post(domain + 'Home/shop/pickedupChange?order_id=' + this.order_id)
           .then(function (response) {
             console.log(response.data)
             $('.pickedup').addClass('active')
@@ -137,7 +137,7 @@
       },
       baggedEvent() {
         var _this = this
-        axios.post(domain + 'Home/shop/baggedChange?uid=' + this.uid)
+        axios.post(domain + 'Home/shop/baggedChange?order_id=' + this.order_id)
           .then(function (response) {
             console.log(response.data)
             $('.bagged').addClass('active')
