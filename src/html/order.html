@@ -152,7 +152,9 @@
       logout() {
         axios.get(domain + 'Home/shop/logout')
           .then(function (response) {
-
+            if (response.data == 0) {
+              window.location.href = 'https://15580083.qcloud.la/Home/shop/client_login'
+            }
           })
           .catch(function (response) {
 
