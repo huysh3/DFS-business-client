@@ -24,7 +24,8 @@
           </div>
           <p class="user-phone">Phone: {{phone}}</p>
         </div>
-        <div class="main-content-item" v-for="item in order" v-if="item.pickedup == 0">
+        <!-- <div class="main-content-item" v-for="item in order" v-if="item.pickedup == 0"> -->
+        <div class="main-content-item" v-for="item in order" >
           <section class="menu-detail">
             <p class="menu-item number">
               <span class="left-part">{{item.product.name_en}}</span>
