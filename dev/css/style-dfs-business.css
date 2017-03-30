@@ -1225,10 +1225,13 @@ html[data-rem="320"] {
 }
 
 .order-container .order-info {
-  display: flex;
   border-bottom: 1px solid #ccc;
   color: #B62A18;
   padding-right: .7rem;
+}
+
+.order-container .order-info .top-content {
+  display: flex;
 }
 
 .order-container .order-info .user,
@@ -1243,6 +1246,16 @@ html[data-rem="320"] {
 
 .order-container .order-info .order-id {
   text-align: right;
+}
+
+.order-container .order-info .user-phone {
+  display: flex;
+  color: #000;
+  font-size: .8rem;
+  margin-top: 0;
+  padding-left: .7rem;
+  position: relative;
+  top: -0.2rem;
 }
 
 .order-container .price-content {

@@ -238,10 +238,12 @@
     padding-bottom: 1rem;
   }
   .order-info {
-    display: flex;
     border-bottom: 1px solid #ccc;
     color: #B62A18;
     padding-right: .7rem;
+    .top-content {
+      display: flex;
+    }
     .user,
     .order-id {
       flex: 1;
@@ -252,6 +254,15 @@
     }
     .order-id {
       text-align: right;
+    }
+    .user-phone {
+      display: flex;
+      color: #000;
+      font-size: .8rem;
+      margin-top: 0;
+      padding-left: .7rem;
+      position: relative;
+      top: -.2rem;
     }
   }
   .price-content {
