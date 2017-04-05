@@ -24,7 +24,7 @@
           </div>
           <p class="user-phone">Phone: {{phone}}</p>
         </div>
-        <div class="main-content-item" v-for="item in order" v-if="item.pickedup == 0">
+        <div class="main-content-item" v-for="item in order">
           <section class="menu-detail">
             <p class="menu-item number">
               <span class="left-part">{{item.product.name_en}}</span>
@@ -111,7 +111,7 @@
             _this.nickname = response.data.nickname
             _this.totalPrice = response.data.total_price
             _this.phone = response.data.phone
-            console.log(response.data.order);
+            console.log(_this.order);
           })
           .catch(function (error) {
             console.log(error);

@@ -106,7 +106,7 @@
       },
       search() {
         var _this = this
-        var a = prompt('输入单号进行搜索')
+        var a = prompt('Search by mobile or order id')
         axios.get(domain + 'Home/shop/likeSearch?string=' + a)
           .then(function (response) {
             console.log(response.data)
