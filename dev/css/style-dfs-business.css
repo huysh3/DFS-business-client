@@ -977,6 +977,10 @@ html[data-rem="320"] {
   background-color: #B62A18;
 }
 
+.clearfix {
+  clear: both;
+}
+
 .banner-content {
   height: 2.7rem;
   position: relative;
@@ -1001,7 +1005,15 @@ html[data-rem="320"] {
   right: .7rem;
   transform: translate(0, -50%);
   color: #dedede;
-  font-size: .6rem;
+}
+
+.banner-content .search-btn {
+  position: absolute;
+  top: 50%;
+  left: .7rem;
+  transform: translate(0, -50%);
+  color: #fff;
+  font-size: .8rem;
 }
 
 .dfs-banner {
@@ -1121,18 +1133,17 @@ html[data-rem="320"] {
 }
 
 .list-container .top-content header {
-  display: flex;
   padding-right: .7rem;
   color: #B62A18;
 }
 
 .list-container .top-content header .title {
-  flex: 8;
+  float: left;
   padding-bottom: 1rem;
 }
 
 .list-container .top-content header .order-id {
-  flex: 1;
+  float: right;
   text-align: right;
 }
 

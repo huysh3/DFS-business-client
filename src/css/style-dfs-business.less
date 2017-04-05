@@ -4,6 +4,10 @@
 @import "lib-rem";
 @import "lib-footer";
 
+.clearfix {
+  clear: both;
+}
+
 .banner-content {
   height: 2.7rem;
   position: relative;
@@ -25,7 +29,14 @@
     right: .7rem;
     transform: translate(0, -50%);
     color: rgb(222, 222, 222);
-    font-size: .6rem;
+  }
+  .search-btn {
+    position: absolute;
+    top: 50%;
+    left: .7rem;
+    transform: translate(0, -50%);
+    color: #fff;
+    font-size: .8rem;
   }
 }
 .dfs-banner {
@@ -136,15 +147,17 @@
     border-left: 1px solid #000;
     border-right: 1px solid #000;
     header {
-      display: flex;
+      // display: flex;
       padding-right: .7rem;
       color: #B62A18;
       .title {
-        flex: 8;
+        // flex: 8;
+        float: left;
         padding-bottom: 1rem;
       }
       .order-id {
-        flex: 1;
+        // flex: 1;
+        float: right;
         text-align: right;
       }
     }
