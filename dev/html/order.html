@@ -51,6 +51,14 @@
       </div>
       <div class="takeplace" style="height: 2rem"></div>
       <footer class="tab-bar">
+        <span @click="paidEvent" class="tab-item paid" :class="paid == 1 ? 'active' : ''">
+          <span class="check-icon"></span>
+          Paid
+        </span>
+        <span @click="baggedEvent" class="tab-item bagged" :class="bagged == 1 ? 'active' : ''">
+          <span class="check-icon"></span>
+          Bagged
+        </span>
         <span @click="pickedUpEvent" class="tab-item pickedup" :class="pickedup == 1 ? 'active' : ''">
           <span class="check-icon"></span>
           Picked Up
@@ -58,10 +66,6 @@
         <span @click="couponEvent" class="tab-item coupon" :class="coupon_status == 1 ? 'active': ''">
           <span class="check-icon"></span>
           Coupon
-        </span>
-        <span @click="baggedEvent" class="tab-item bagged" :class="bagged == 1 ? 'active' : ''">
-          <span class="check-icon"></span>
-          Bagged
         </span>
       </footer>
     </div>
@@ -76,6 +80,7 @@
         order_id: '',
         nickname:'',
         order: '',
+        paid: '0',
         pickedup: '0',
         uid: '',
         coupon_status: '0',
@@ -105,6 +110,7 @@
           .then(function (response) {
             _this.nickname = response.data.nickname
             _this.order = response.data.order
+            _this.paid = response.data.order[0].paid
             _this.pickedup = response.data.order[0].pickedup
             _this.bagged = response.data.order[0].bagged
             _this.coupon_status = response.data.coupon.coupon_status
@@ -141,6 +147,20 @@
           .catch(function (error) {
 
           })
+      },
+      paidEvent() {
+        var _this = this
+        if (confirm('Please confirm you\'re changing the PAID state.')) {
+          axios.post(domain + 'Home/shop/paidChange?order_id=' + this.order_id)
+            .then(function (response) {
+              console.log(response.data)
+              $('.paid').addClass('active')
+              _this.paid = 1 - _this.paid
+            })
+            .catch(function (error) {
+
+            })
+        }
       },
       baggedEvent() {
         var _this = this

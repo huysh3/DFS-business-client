@@ -42,6 +42,14 @@
             </div>
           </div>
           <div class="options-content">
+            <span class="options-item picked-up-check" :class="item.order[0].paid == 1 ? 'active' : ''">
+              <span class="check-icon"></span>
+              Paid
+            </span>
+            <span class="options-item bagged-check" :class="item.order[0].bagged == 1 ? 'active' : ''">
+              <span class="check-icon"></span>
+              Bagged
+            </span>
             <span class="options-item picked-up-check" :class="item.order[0].pickedup == 1 ? 'active' : ''">
               <span class="check-icon"></span>
               Picked Up
@@ -49,10 +57,6 @@
             <span class="options-item coupon-check" :class="item.coupon.coupon_status == 1 ? 'active' : ''">
               <span class="check-icon"></span>
               Coupon
-            </span>
-            <span class="options-item bagged-check" :class="item.order[0].bagged == 1 ? 'active' : ''">
-              <span class="check-icon"></span>
-              Bagged
             </span>
           </div>
         </section>
