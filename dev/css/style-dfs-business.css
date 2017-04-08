@@ -1224,6 +1224,16 @@ html[data-rem="320"] {
   height: 1rem;
 }
 
+.list-container .get-more {
+  width: 100vw;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #999;
+  background-color: #f0f0f0;
+  font-size: .8rem;
+}
+
 .order-container {
   background-color: #fff;
   min-height: 100vh;

@@ -60,6 +60,12 @@
             </span>
           </div>
         </section>
+        <div v-if="currentPage < page" @click="showMore" class="get-more">
+          Click for more orders
+        </div>
+        <div v-if="currentPage >= page" class="get-more">
+          -- Bottom --
+        </div>
       </div>
       <div class="takeplace-20" style="height: 2rem"></div>
       <footer class="tab-bar">
@@ -79,6 +85,8 @@
         orderList: [],
         indexList: [],
         finishedOrderList: [],
+        currentPage: 1,
+        page: 99,
         showStatus: 0,
       }
     },
@@ -88,15 +96,20 @@
     methods: {
       getOrderList() {
         var _this = this
-        axios.get(domain + 'Home/shop/order_list')
+        axios.get(domain + 'Home/shop/order_list?currentPage=' + _this.currentPage)
           .then(function (response) {
             console.log(response.data)
-            _this.orderList = response.data
-            _this.indexList = _this.orderList
+            _this.orderList = response.data.orderList
+            _this.page = response.data.page
+            _this.indexList = _this.indexList.concat(_this.orderList)
           })
           .catch(function (error) {
             console.log(error);
           });
+      },
+      showMore() {
+        this.currentPage ++
+        this.getOrderList()
       },
       showOrderList() {
         $('.nav-item').removeClass('active')
@@ -120,15 +133,6 @@
           .catch(function (error) {
             console.log(error);
           });
-      },
-      pickedUpEvent() {
-
-      },
-      couponEvent() {
-
-      },
-      baggedEvent() {
-
       },
       logout() {
         axios.get(domain + 'Home/shop/logout')
