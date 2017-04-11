@@ -203,7 +203,7 @@
           return false;
         }
         _this.refund = 'pending'
-        axios.get(domain + 'Pay/Wechatpay/testRefund?transaction_id=' + t_id + '&amount=' + amount)
+        axios.get(domain + 'Pay/Wechatpay/<refund></refund>?transaction_id=' + t_id + '&amount=' + amount)
           .then(function (response) {
             console.log(response.data)
             if (response.data == 'success') {
