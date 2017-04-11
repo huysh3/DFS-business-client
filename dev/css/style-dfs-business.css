@@ -1249,6 +1249,7 @@ html[data-rem="320"] {
   border-bottom: 1px solid #ccc;
   color: #B62A18;
   padding-right: .7rem;
+  position: relative;
 }
 
 .order-container .order-info .top-content {
@@ -1277,6 +1278,14 @@ html[data-rem="320"] {
   padding-left: .7rem;
   position: relative;
   top: -0.2rem;
+}
+
+.order-container .order-info .refund-btn {
+  font-size: .7rem;
+  position: absolute;
+  right: .7rem;
+  bottom: .9rem;
+  text-decoration: underline;
 }
 
 .order-container .price-content {
