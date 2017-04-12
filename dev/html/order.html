@@ -195,7 +195,7 @@
       },
       refundHandler() {
         var _this = this
-        var t_id = prompt('Input transaction_id to confirm refund.')
+        var t_id = prompt('Input transaction_id to confirm refund.', this.transaction_id)
         if (t_id) {
           var amount = prompt('Enter the refund amount($):')
         }
@@ -203,7 +203,7 @@
           return false;
         }
         _this.refund = 'pending'
-        axios.get(domain + 'Pay/Wechatpay/<refund></refund>?transaction_id=' + t_id + '&amount=' + amount)
+        axios.get(domain + 'Pay/Wechatpay/refund?transaction_id=' + t_id + '&amount=' + amount)
           .then(function (response) {
             console.log(response.data)
             if (response.data == 'success') {
