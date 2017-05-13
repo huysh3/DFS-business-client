@@ -134,7 +134,8 @@
     methods: {
       getOrderList() {
         var _this = this
-        axios.get(domain + 'V1/shop/order_list?currentPage=' + _this.currentPage)
+        // axios.get(domain + 'V1/shop/order_list?currentPage=' + _this.currentPage)
+        axios.get(domain + 'V1/shop/order_list?flagged=1')
           .then(function (response) {
             console.log(response.data)
             _this.orderList = response.data.orderList
